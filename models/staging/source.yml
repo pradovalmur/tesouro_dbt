@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: tesouro
+    database: tesouro
+    schema: DBT_VPRADO
+    tables:
+      - name: operations
+      - name: investidors
+      - name: channel
+      - name: type_operation

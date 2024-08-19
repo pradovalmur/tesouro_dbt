@@ -1,0 +1,5 @@
+Id,TypeOperation,TypeOperationName
+1,C,BUY
+2,V,SELL
+3,R,WITHDRAWAL
+4,D,DEPOSIT

@@ -26,12 +26,12 @@ min_stock_value as (
 
 select 
    a.STOCK,
-   TIPOTITULO,
-   vencimentotitulo,
-   PU,
-   QUANTIDADE,
-   VALORESTOQUE,
-   MESESTOQUE
+   TIPOTITULO as type,
+   vencimentotitulo as DueDate,
+   PU as stockvalue,
+   QUANTIDADE as Quantity,
+   VALORESTOQUE as stocktotalvalue,
+   MESESTOQUE as StockDate
 from source_data as a
 inner join min_stock_value as b on a.STOCK = b.stock and a.mesestoque = b.min_mes_estoque
 

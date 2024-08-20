@@ -1,5 +1,9 @@
 -- models/operations.sql
 
+{{ config(
+    materialized='view'
+) }}
+
 with source_data as (
     select 
         codigodonegociador as CodigoNegociador,

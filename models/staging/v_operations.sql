@@ -18,7 +18,7 @@ with source_data as (
         c.typeoperationname
     from  {{ source("tesouro", "operations") }} as a
     inner join {{ source("tesouro", "channel") }} as b on a.canaldaoperacao = b.channeltype
-    inner join {{ source("tesouro", "type_operation") }} as c on a.tipodaoperacao = c.typeoperation
+    inner join {{ source("tesouro", "TypeOperation") }} as c on a.tipodaoperacao = c.typeoperation
 )
 
 select * from source_data

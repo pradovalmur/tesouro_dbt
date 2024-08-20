@@ -8,6 +8,6 @@ sources:
       - name: operations
       - name: investidors
       - name: channel
-      - name: type_operation
+      - name: TypeOperation
       - name: Gender
       - name: uf

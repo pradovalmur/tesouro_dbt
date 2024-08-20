@@ -1,4 +1,4 @@
--- models/investidors.sql
+-- models/staging/investidors.sql
 
 {{ config(
     materialized='view'
@@ -6,7 +6,7 @@
 
 with source_data as (
     select 
-        a.codigodonegociador,
+        a.codigodonegociador as InvestidorCode,
         to_date(a.datadaadesao, 'DD/MM/YYYY') as DateAccession,
         a.estadocivil as MaritalStatus,
         g.gendername as Gender,

@@ -1,4 +1,4 @@
--- models/operations.sql
+-- models/staging/operations.sql
 
 {{ config(
     materialized='view'
@@ -6,14 +6,14 @@
 
 with source_data as (
     select 
-        codigodonegociador as CodigoNegociador,
-        to_date(datadaoperacao, 'DD/MM/YYYY') as DataOperacao,
-        tipotitulo as TipoTitulo,
-        concat(tipotitulo, '-', to_date(vencimentodotitulo, 'DD/MM/YYYY')) as titulo,
-        to_date(vencimentodotitulo, 'DD/MM/YYYY') as VencimentoTitulo,
-        cast(replace(quantidade, ',', '.') as float) as quantidade,
-        cast(replace(valordotitulo, ',', '.')as float) as ValorTitulo,
-        cast(replace(valordaoperacao, ',', '.')as float) as ValorOperacao,
+        codigodonegociador as investidorCode,
+        to_date(datadaoperacao, 'DD/MM/YYYY') as OperationDate,
+        tipotitulo as TypeStock,
+        concat(tipotitulo, '-', to_date(vencimentodotitulo, 'DD/MM/YYYY')) as stock,
+        to_date(vencimentodotitulo, 'DD/MM/YYYY') as duedate,
+        cast(replace(quantidade, ',', '.') as float) as quantity,
+        cast(replace(valordotitulo, ',', '.')as float) as valueStock,
+        cast(replace(valordaoperacao, ',', '.')as float) as valueoperation,
         b.channelname,
         c.typeoperationname
     from  {{ source("tesouro", "operations") }} as a

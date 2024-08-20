@@ -9,3 +9,5 @@ sources:
       - name: investidors
       - name: channel
       - name: type_operation
+      - name: Gender
+      - name: uf

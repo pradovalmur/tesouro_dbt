@@ -5,6 +5,7 @@ with
         select
             {{ generate_hash(['OPERATIONDATE', 'INVESTIDORCODE', 'QUANTITY']) }} as hkTransaction,
              CURRENT_TIMESTAMP() as load_dts,
+             OPERATIONDATE,
              QUANTITY,
              VALUEOPERATION,
              TYPEOPERATIONNAME,

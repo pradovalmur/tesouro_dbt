@@ -12,3 +12,4 @@ sources:
       - name: TypeOperation
       - name: Gender
       - name: uf
+      - name: accountStatus

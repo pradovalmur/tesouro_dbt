@@ -15,10 +15,11 @@ with source_data as (
         u.name as StateName,
         a.cidadedonegociador as city,
         a.paisnegociador as country,
-        a.situacaodaconta as account_status
+        s.statusname as account_status
     from  {{ source("tesouro", "investidors") }} as a
     inner join {{ source("tesouro", "Gender") }} as g on a.genero = GenderId
     inner join {{ source("tesouro","uf") }} as u on a.ufdonegociador = u.uf
+    inner join {{ source("tesouro", "accountStatus") }} as s on a.situacaodaconta = s.accountstatus
 )
 
 select * from source_data

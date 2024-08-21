@@ -14,7 +14,8 @@ with source_data as (
         to_numeric(a.idade) as Age,
         u.name as StateName,
         a.cidadedonegociador as city,
-        a.paisnegociador as country
+        a.paisnegociador as country,
+        a.situacaodaconta as account_status
     from  {{ source("tesouro", "investidors") }} as a
     inner join {{ source("tesouro", "Gender") }} as g on a.genero = GenderId
     inner join {{ source("tesouro","uf") }} as u on a.ufdonegociador = u.uf

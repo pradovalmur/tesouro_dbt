@@ -6,7 +6,7 @@ with source_data as (
      sum(quantity),
      sum(valueOperation)
     from {{ ref("l_operations") }} as lo
-    inner join {{ ref("s_transaction") }} as st on lo.HKTRANSACTION = st.HKTRANSACTION
+    inner join {{ ref("s_operations") }} as st on lo.HKTRANSACTION = st.HKTRANSACTION
     inner join {{ source("tesouro", "calendar") }} as c on st.operationdate = c.date
     group by c.date
 )
